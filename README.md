@@ -53,3 +53,6 @@ cd backend
 npm install
 node server.js
 Backend runs at: http://localhost:5000
+
+📄 License
+MIT License — Free to use, modify, and share.
