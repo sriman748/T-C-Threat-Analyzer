@@ -100,12 +100,12 @@ export default function TnCAnalyzer() {
 
     setLoading(true);
     try {
-      const proxyURL = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+      const proxyURL = `http://localhost:5000/fetch?url=${encodeURIComponent(url)}`;
       const response = await fetch(proxyURL);
-      const data = await response.json();
+      const html = await response.text();
 
       const parser = new DOMParser();
-      const doc = parser.parseFromString(data.contents, "text/html");
+      const doc = parser.parseFromString(html, "text/html");
       doc.querySelectorAll("script, style, meta, noscript, link").forEach(el => el.remove());
 
       const rawText = doc.body?.innerText || "";
